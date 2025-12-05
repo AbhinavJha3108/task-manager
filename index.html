@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>📋 Task Manager</h1>
+                <button class="add-btn" onclick="openModal()">+ Add Task</button>
+            </div>
+        </header>
+
+        <main class="task-board">
+            <section class="column todo">
+                <div class="column-header">
+                    <h2 class="column-title">
+                        📋 To Do
+                    </h2>
+                    <span class="column-count" id="todoCount">0</span>
+                </div>
+                <div class="task-list" id="todoTasks">
+                    <div class="empty-state">No tasks yet. Click "Add Task" to create one!</div>
+                </div>
+            </section>
+
+            <section class="column doing">
+                <div class="column-header">
+                    <h2 class="column-title">
+                        🚀 Doing
+                    </h2>
+                    <span class="column-count" id="doingCount">0</span>
+                </div>
+                <div class="task-list" id="doingTasks">
+                    <div class="empty-state">No tasks in progress</div>
+                </div>
+            </section>
+
+            <section class="column done">
+                <div class="column-header">
+                    <h2 class="column-title">
+                        ✅ Done
+                    </h2>
+                    <span class="column-count" id="doneCount">0</span>
+                </div>
+                <div class="task-list" id="doneTasks">
+                    <div class="empty-state">No completed tasks</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add New Task</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <form id="taskForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="taskName">Task Name *</label>
+                    <input type="text" id="taskName" name="taskName" required placeholder="Enter task name...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="assigneeName">Assigned To *</label>
+                    <input type="text" id="assigneeName" name="assigneeName" required placeholder="Enter person name...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="teamName">Team Name *</label>
+                    <input type="text" id="teamName" name="teamName" required placeholder="Enter team name...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="status">Status *</label>
+                    <select id="status" name="status" required>
+                        <option value="">Select status...</option>
+                        <option value="todo">To Do</option>
+                        <option value="doing">Doing</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
